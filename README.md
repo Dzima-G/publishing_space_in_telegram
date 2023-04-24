@@ -27,19 +27,25 @@
 Python3 должен быть уже установлен. 
 Затем используйте `pip` (или `pip3`, есть есть конфликт с Python2) для установки зависимостей:
 ```
-
 pip install -r requirements.txt
 ```
 
 ### Применение
-Скрипты рботают из консольной утилиты.
-```
-\download photos from NASA> python publish_all_images_with_a_delay.py 3
+Скрипты работают из консольной утилиты.
+
+Для запуска скриптов: ``` fetch_epic_nasa_image.py, fetch_nasa_image.py, fetch_spacex_images.py```:
 
 ```
-Отправьте параметры `-h` помощь.
+\publishing_space_in_telegram> fetch_epic_nasa_image.py
+\publishing_space_in_telegram> fetch_nasa_image.py
+\publishing_space_in_telegram> fetch_spacex_images.py
 ```
-\download photos from NASA> python publish_all_images_with_a_delay.py -h
+Для запуска скриптов: 
+
+``` publish_all_images_with_a_delay.py```: отправьте параметры `-h` помощь.
+
+```
+\publishing_space_in_telegram> python publish_all_images_with_a_delay.py -h
 usage: publish_all_images_with_a_delay.py [-h] [publication_delay]
 
 Введите время задержки между публикациями в секундах:
@@ -51,6 +57,20 @@ options:
   -h, --help         show this help message and exit  
 ```
 
+``` posts_an_image.py```: отправьте параметры `-h` помощь.
+```
+\publishing_space_in_telegram> posts_an_image.py -h
+
+usage: posts_an_image.py [-h] [images_file_name]
+
+Введите название файла изображения
+
+positional arguments:
+  images_file_name  Введите название файла картинки из папки images
+
+options:
+  -h, --help        show this help message and exit
+```
 ### Цель проекта
 
 
