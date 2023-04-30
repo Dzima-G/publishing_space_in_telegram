@@ -21,6 +21,7 @@
 Необходимы следующие переменные:
 - `NASA_TOKEN` - токен выглядит например: `N0bFH5PNh4cx6Dc7RBssCDJf7Z6Jgi1KCacg8792`. См. документацию https://api.nasa.gov/
 - `TELEGRAM_TOKEN` - токен выглядит например: `958423683:AAEAtJ5Lde5YYfkjergber`. См. документацию https://core.telegram.org/bots/faq#how-do-i-create-a-bot
+- `CHAT_ID` - выглядит например: `-1001901234567` См. https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
 - `PUBLICATION_DELAY_TELEGRAM` - задержка между публикацией постов, указывается в секундах тип данных `int`.
 
 
