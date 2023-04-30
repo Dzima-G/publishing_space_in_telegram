@@ -103,7 +103,8 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
-
+main.py
+get_bot_id_.py
 
 # Environments
 .env
@@ -115,8 +116,11 @@ env.bak/
 venv.bak/
 .idea
 images/
+<<<<<<< HEAD
+
+=======
 main.py
-get_bot_id.py
+>>>>>>> parent of 5be4b41 (extra arguments removed)
 
 # Spyder project settings
 .spyderproject
