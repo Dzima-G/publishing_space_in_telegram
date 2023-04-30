@@ -3,7 +3,8 @@ import os
 import time
 import random
 import argparse
-from helper_scripts import image_folder_name, telegram_token
+from dotenv import load_dotenv
+from helper_scripts import image_folder_name
 
 
 def take_files(directory, publication_delay, telegram_token):
@@ -20,6 +21,8 @@ def take_files(directory, publication_delay, telegram_token):
 
 
 if __name__ == "__main__":
+    load_dotenv()
+    telegram_token = os.environ['TELEGRAM_TOKEN']
     publication_delay_default = os.environ['PUBLICATION_DELAY_TELEGRAM']
     parser_post_telegram = argparse.ArgumentParser(description='Введите время задержки между публикациями в секундах:')
     parser_post_telegram.add_argument('publication_delay', nargs='?', default=publication_delay_default,

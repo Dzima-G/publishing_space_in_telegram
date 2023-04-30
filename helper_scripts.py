@@ -1,6 +1,5 @@
 import os
 from urllib.parse import urlparse
-from dotenv import load_dotenv
 
 
 def getting_an_extension(uri):
@@ -8,6 +7,4 @@ def getting_an_extension(uri):
     return os.path.splitext(extension)[1]
 
 
-load_dotenv()
 image_folder_name = 'images'
-telegram_token = os.environ['TELEGRAM_TOKEN']

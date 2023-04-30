@@ -2,7 +2,8 @@ import telegram
 import os
 import random
 import argparse
-from helper_scripts import image_folder_name, telegram_token
+from dotenv import load_dotenv
+from helper_scripts import image_folder_name
 
 
 def publish_image(directory, telegram_token, image):
@@ -12,6 +13,8 @@ def publish_image(directory, telegram_token, image):
 
 
 if __name__ == "__main__":
+    load_dotenv()
+    telegram_token = os.environ['TELEGRAM_TOKEN']
     files_in_dir = os.listdir(image_folder_name)
     parser_post_telegram = argparse.ArgumentParser(description='Введите название файла изображения')
     parser_post_telegram.add_argument('image_file_name', nargs='?', default=random.choice(files_in_dir),
