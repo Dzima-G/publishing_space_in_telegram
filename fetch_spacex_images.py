@@ -23,11 +23,7 @@ if __name__ == "__main__":
     parser_spacex.add_argument('id_launch', nargs='?', default='61eefaa89eb1064137a1bd73', help='ID запуска')
     launch_id = parser_spacex.parse_args().id_launch
     spacex_uri = f'https://api.spacexdata.com/v5/launches/{launch_id}'
-
-    try:
-        os.makedirs(image_folder_name)
-    except FileExistsError:
-        pass
+    os.makedirs(image_folder_name, exist_ok=True)
 
     try:
         fetch_spacex_last_launch(spacex_uri, image_folder_name)

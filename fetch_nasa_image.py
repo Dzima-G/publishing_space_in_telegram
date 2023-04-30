@@ -27,11 +27,7 @@ def get_image_nasa(nasa_url, nasa_token, write_folder_path):
 if __name__ == "__main__":
     nasa_url = 'https://api.nasa.gov/planetary/apod'
     nasa_token = os.environ['NASA_TOKEN']
-
-    try:
-        os.makedirs(image_folder_name)
-    except FileExistsError:
-        pass
+    os.makedirs(image_folder_name, exist_ok=True)
 
     try:
         get_image_nasa(nasa_url, nasa_token, image_folder_name)
