@@ -23,7 +23,4 @@ if __name__ == "__main__":
                                       help='Введите название файла картинки из папки images')
     image_file_name = parser_post_telegram.parse_args().image_file_name
 
-    try:
-        publish_image(image_folder_name, telegram_token, telegram_chat_id, image_file_name)
-    except FileExistsError:
-        pass
+    publish_image(image_folder_name, telegram_token, telegram_chat_id, image_file_name)

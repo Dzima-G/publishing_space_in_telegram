@@ -31,7 +31,4 @@ if __name__ == "__main__":
                                       help='Время задержки между публикациями в секундах')
     publication_delay = parser_post_telegram.parse_args().publication_delay
 
-    try:
-        take_files(image_folder_name, publication_delay, telegram_token, telegram_chat_id)
-    except FileExistsError:
-        pass
+    take_files(image_folder_name, publication_delay, telegram_token, telegram_chat_id)
