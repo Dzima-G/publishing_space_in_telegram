@@ -18,14 +18,14 @@
 └── posts_an_image.py
 └── publish_all_images_with_a_delay.py
 ```
-Необходимы следущие переменные:
+Необходимы следующие переменные:
 - `NASA_TOKEN` - токен выглядит например: `N0bFH5PNh4cx6Dc7RBssCDJf7Z6Jgi1KCacg8792`. См. документацию https://api.nasa.gov/
 - `TELEGRAM_TOKEN` - токен выглядит например: `958423683:AAEAtJ5Lde5YYfkjergber`. См. документацию https://core.telegram.org/bots/faq#how-do-i-create-a-bot
 - `PUBLICATION_DELAY_TELEGRAM` - задержка между публикацией постов, указывается в секундах тип данных `int`.
 
 
 Python3 должен быть уже установлен. 
-Затем используйте `pip` (или `pip3`, есть есть конфликт с Python2) для установки зависимостей:
+Затем используйте `pip` (или `pip3`, есть конфликт с Python2) для установки зависимостей:
 ```
 pip install -r requirements.txt
 ```
