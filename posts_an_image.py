@@ -6,10 +6,11 @@ from dotenv import load_dotenv
 from helper_scripts import image_folder_name
 
 
-def publish_image(directory, telegram_token, telegram_chat_id, image,):
+def publish_image(directory, telegram_token, telegram_chat_id, image, ):
     bot = telegram.Bot(token=telegram_token)
     file = os.path.join(str(directory), image)
-    bot.send_photo(chat_id=telegram_chat_id, photo=open(file, 'rb'))
+    with open(file, 'rb') as file:
+        bot.send_photo(chat_id=telegram_chat_id, photo=file)
 
 
 if __name__ == "__main__":

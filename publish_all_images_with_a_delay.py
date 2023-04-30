@@ -15,7 +15,8 @@ def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
         for files_in_dirs in files_in_dir:
             path = os.path.join(files_in_dirs)
             file = os.path.join(str(directory), path)
-            bot.send_photo(chat_id=telegram_chat_id, photo=open(file, 'rb'))
+            with open(file, 'rb') as file:
+                bot.send_photo(chat_id=telegram_chat_id, photo=file)
             time.sleep(int(publication_delay))
         random.shuffle(files_in_dir)
 
