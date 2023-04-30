@@ -3,11 +3,12 @@ import os
 from urllib.parse import urlparse, unquote
 from helper_scripts import getting_an_extension
 from helper_scripts import image_folder_name
+from dotenv import load_dotenv
 
-
-def get_image_nasa(nasa_url, nasa_token, write_folder_path):
+def get_image_nasa(nasa_token, write_folder_path):
+    nasa_url = 'https://api.nasa.gov/planetary/apod'
     payload = {'api_key': nasa_token,
-               'count': '31',
+               'count': '30',
                }
     response_nasa = requests.get(nasa_url, params=payload)
     response_nasa.raise_for_status()
@@ -25,11 +26,11 @@ def get_image_nasa(nasa_url, nasa_token, write_folder_path):
 
 
 if __name__ == "__main__":
-    nasa_url = 'https://api.nasa.gov/planetary/apod'
+    load_dotenv()
     nasa_token = os.environ['NASA_TOKEN']
     os.makedirs(image_folder_name, exist_ok=True)
 
     try:
-        get_image_nasa(nasa_url, nasa_token, image_folder_name)
+        get_image_nasa(nasa_token, image_folder_name)
     except requests.exceptions.HTTPError:
         print('Ошибка! Некорректная ссылка')

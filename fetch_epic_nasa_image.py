@@ -1,9 +1,10 @@
 import requests
 import os
 from helper_scripts import image_folder_name
+from dotenv import load_dotenv
 
-
-def get_image_nasa_epic(nasa_epic_url, nasa_token, write_folder_path):
+def get_image_nasa_epic(nasa_token, write_folder_path):
+    nasa_epic_url = 'https://epic.gsfc.nasa.gov/api/natural/'
     payload = {'api_key': nasa_token}
     response_nasa_epic = requests.get(nasa_epic_url, params=payload)
     response_nasa_epic.raise_for_status()
@@ -21,11 +22,11 @@ def get_image_nasa_epic(nasa_epic_url, nasa_token, write_folder_path):
 
 
 if __name__ == "__main__":
-    nasa_epic_url = 'https://epic.gsfc.nasa.gov/api/natural/'
+    load_dotenv()
     nasa_token = os.environ['NASA_TOKEN']
     os.makedirs(image_folder_name, exist_ok=True)
 
     try:
-        get_image_nasa_epic(nasa_epic_url, nasa_token, image_folder_name)
+        get_image_nasa_epic(nasa_token, image_folder_name)
     except requests.exceptions.HTTPError:
         print('Ошибка! Некорректная ссылка')

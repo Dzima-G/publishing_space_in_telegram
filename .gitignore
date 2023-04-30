@@ -116,6 +116,7 @@ venv.bak/
 .idea
 images/
 main.py
+get_bot_id.py
 
 # Spyder project settings
 .spyderproject
