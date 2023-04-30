@@ -3,11 +3,11 @@ import os
 import time
 import random
 import argparse
-from helper_scripts import image_folder_name, token_telegram
+from helper_scripts import image_folder_name, telegram_token
 
 
-def take_files(directory, delay_after_publication, token_telegram):
-    bot = telegram.Bot(token=token_telegram)
+def take_files(directory, publication_delay, telegram_token):
+    bot = telegram.Bot(token=telegram_token)
     files_in_dir = os.listdir(directory)
 
     while True:
@@ -15,7 +15,7 @@ def take_files(directory, delay_after_publication, token_telegram):
             path = os.path.join(files_in_dirs)
             file = os.path.join(str(directory), path)
             bot.send_photo(chat_id='-1001906233310', photo=open(file, 'rb'))
-            time.sleep(int(delay_after_publication))
+            time.sleep(int(publication_delay))
         random.shuffle(files_in_dir)
 
 
@@ -27,6 +27,6 @@ if __name__ == "__main__":
     publication_delay = parser_post_telegram.parse_args().publication_delay
 
     try:
-        take_files(image_folder_name, publication_delay, token_telegram)
+        take_files(image_folder_name, publication_delay, telegram_token)
     except FileExistsError:
         pass

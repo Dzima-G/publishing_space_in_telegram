@@ -10,4 +10,4 @@ def getting_an_extension(uri):
 
 load_dotenv()
 image_folder_name = 'images'
-token_telegram = os.environ['TELEGRAM_TOKEN']
+telegram_token = os.environ['TELEGRAM_TOKEN']
