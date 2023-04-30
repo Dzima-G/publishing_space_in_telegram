@@ -1,28 +1,23 @@
 import requests
 import os
 from urllib.parse import urlparse, unquote
-from helper_scripts import getting_an_extension
-from helper_scripts import image_folder_name
+from helper_scripts import image_folder_name, getting_an_extension, get_response_api, save_image
 from dotenv import load_dotenv
 
-def get_image_nasa(nasa_token, write_folder_path):
+
+def download_image_nasa(nasa_token):
     nasa_url = 'https://api.nasa.gov/planetary/apod'
     payload = {'api_key': nasa_token,
                'count': '30',
                }
-    response_nasa = requests.get(nasa_url, params=payload)
-    response_nasa.raise_for_status()
-    for i, item_uri in enumerate(response_nasa.json()):
+
+    for i, item_uri in enumerate(get_response_api(nasa_url, payload).json()):
         uri = item_uri['url']
         if len(getting_an_extension(uri)) > 0:
             image_name = f'nasa_apod_{i}{getting_an_extension(uri)}'
             parse_result = urlparse(uri)
             unquote_uri = unquote(f'{parse_result.scheme}://{parse_result.netloc}{parse_result.path}')
-            response_image = requests.get(unquote_uri)
-            response_image.raise_for_status()
-            file_path = os.path.join(write_folder_path, image_name)
-            with open(file_path, 'wb') as file:
-                file.write(response_image.content)
+            save_image(get_response_api(unquote_uri), image_name, image_folder_name)
 
 
 if __name__ == "__main__":
@@ -31,6 +26,6 @@ if __name__ == "__main__":
     os.makedirs(image_folder_name, exist_ok=True)
 
     try:
-        get_image_nasa(nasa_token, image_folder_name)
+        download_image_nasa(nasa_token)
     except requests.exceptions.HTTPError:
         print('Ошибка! Некорректная ссылка')
