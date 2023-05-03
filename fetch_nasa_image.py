@@ -14,7 +14,7 @@ def download_image_nasa(nasa_token):
         if not item_uri['media_type'] == 'image':
             continue
         uri = item_uri['url']
-        if not len(get_extension(uri)) > 0:
+        if not get_extension(uri):
             continue
         image_name = f'nasa_apod_{i}{get_extension(uri)}'
         parse_result = urlparse(uri)
