@@ -8,11 +8,11 @@ def get_extension(uri):
     return os.path.splitext(extension)[1]
 
 
-def get_response_api(api_url, *get_payload):
-    if not get_payload:
+def get_response_api(api_url, *payload_request):
+    if not payload_request:
         payload = {}
     else:
-        payload = get_payload[0]
+        payload = payload_request[0]
     response = requests.get(api_url, params=payload)
     response.raise_for_status()
     return response
