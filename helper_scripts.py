@@ -10,7 +10,7 @@ def get_extension(uri):
 
 def get_response_api(api_url, *payload_request):
     if not payload_request:
-        payload = {}
+        payload = None
     else:
         payload = payload_request[0]
     response = requests.get(api_url, params=payload)
