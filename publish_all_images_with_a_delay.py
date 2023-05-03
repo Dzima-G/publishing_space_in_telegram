@@ -17,7 +17,7 @@ def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
             file = os.path.join(str(directory), path)
             with open(file, 'rb') as file:
                 bot.send_photo(chat_id=telegram_chat_id, photo=file)
-            time.sleep(int(publication_delay))
+            time.sleep(publication_delay)
         random.shuffle(files_in_dir)
 
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     telegram_chat_id = os.environ['TG_CHAT_ID']
     publication_delay_default = os.environ['PUBLICATION_DELAY_TELEGRAM']
     parser_post_telegram = argparse.ArgumentParser(description='Введите время задержки между публикациями в секундах:')
-    parser_post_telegram.add_argument('publication_delay', nargs='?', default=publication_delay_default,
+    parser_post_telegram.add_argument('publication_delay', type=int, nargs='?', default=publication_delay_default,
                                       help='Время задержки между публикациями в секундах')
     publication_delay = parser_post_telegram.parse_args().publication_delay
 
