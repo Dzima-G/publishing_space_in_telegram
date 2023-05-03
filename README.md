@@ -23,6 +23,8 @@
 - `TELEGRAM_TOKEN` - токен выглядит например: `958423683:AAEAtJ5Lde5YYfkjergber`. См. документацию https://core.telegram.org/bots/faq#how-do-i-create-a-bot
 - `CHAT_ID` - выглядит например: `-1001901234567` См. https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
 - `PUBLICATION_DELAY_TELEGRAM` - задержка между публикацией постов, указывается в секундах тип данных `int`.
+- `NASA_IMAGES_COUNT` указывается количество скачиваемых фото NASA, тип данных `int`. Например 20.
+- `NASA_EPIC_IMAGES_COUNT` указывается количество скачиваемых фото NASA EPIC, тип данных `int`. Например 10.
 
 
 Python3 должен быть уже установлен. 
