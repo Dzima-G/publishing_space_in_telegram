@@ -11,13 +11,15 @@ def download_image_nasa(nasa_token):
                'count': '30',
                }
     for i, item_uri in enumerate(get_response_api(nasa_url, payload).json()):
-        if item_uri['media_type'] == 'image':
-            uri = item_uri['url']
-            if len(get_extension(uri)) > 0:
-                image_name = f'nasa_apod_{i}{get_extension(uri)}'
-                parse_result = urlparse(uri)
-                unquote_uri = unquote(f'{parse_result.scheme}://{parse_result.netloc}{parse_result.path}')
-                save_image(get_response_api(unquote_uri), image_name, image_folder_name)
+        if not item_uri['media_type'] == 'image':
+            continue
+        uri = item_uri['url']
+        if not len(get_extension(uri)) > 0:
+            continue
+        image_name = f'nasa_apod_{i}{get_extension(uri)}'
+        parse_result = urlparse(uri)
+        unquote_uri = unquote(f'{parse_result.scheme}://{parse_result.netloc}{parse_result.path}')
+        save_image(get_response_api(unquote_uri), image_name, image_folder_name)
 
 
 if __name__ == "__main__":
