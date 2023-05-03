@@ -3,7 +3,7 @@ import requests
 from urllib.parse import urlparse
 
 
-def getting_an_extension(uri):
+def get_extension(uri):
     extension = urlparse(uri).path
     return os.path.splitext(extension)[1]
 

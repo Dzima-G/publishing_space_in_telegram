@@ -1,13 +1,13 @@
 import requests
 import os
 import argparse
-from helper_scripts import image_folder_name, getting_an_extension, get_response_api, save_image
+from helper_scripts import image_folder_name, get_extension, get_response_api, save_image
 
 
 def download_spacex_launch_image(launch_id):
     spacex_uri = f'https://api.spacexdata.com/v5/launches/{launch_id}'
     for i, item_uri in enumerate(get_response_api(spacex_uri).json()['links']['flickr']['original']):
-        image_name = f'spacex{i}{getting_an_extension(item_uri)}'
+        image_name = f'spacex{i}{get_extension(item_uri)}'
         save_image(get_response_api(item_uri), image_name, image_folder_name)
 
 
