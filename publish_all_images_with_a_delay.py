@@ -4,7 +4,7 @@ import time
 import random
 import argparse
 from dotenv import load_dotenv
-from helper_scripts import image_folder_name
+from helper_scripts import image_folder_name, publishes_an_image
 
 
 def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
@@ -14,9 +14,7 @@ def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
     while True:
         for files_in_dirs in files_in_dir:
             path = os.path.join(files_in_dirs)
-            file = os.path.join(str(directory), path)
-            with open(file, 'rb') as file:
-                bot.send_photo(chat_id=telegram_chat_id, photo=file)
+            publishes_an_image(directory, path, bot, telegram_chat_id)
             time.sleep(publication_delay)
         random.shuffle(files_in_dir)
 

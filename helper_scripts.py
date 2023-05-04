@@ -24,4 +24,10 @@ def save_image(file_image, image_name, image_folder_name):
         file.write(file_image.content)
 
 
+def publishes_an_image(directory, image_file_name, tg_bot, tg_chat_id):
+    file = os.path.join(directory, image_file_name)
+    with open(file, 'rb') as file:
+        tg_bot.send_photo(chat_id=tg_chat_id, photo=file)
+
+
 image_folder_name = 'images'

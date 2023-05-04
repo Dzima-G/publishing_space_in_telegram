@@ -3,14 +3,12 @@ import os
 import random
 import argparse
 from dotenv import load_dotenv
-from helper_scripts import image_folder_name
+from helper_scripts import image_folder_name, publishes_an_image
 
 
-def publish_image(directory, telegram_token, telegram_chat_id, image, ):
+def publish_image(directory, telegram_token, telegram_chat_id, image):
     bot = telegram.Bot(token=telegram_token)
-    file = os.path.join(str(directory), image)
-    with open(file, 'rb') as file:
-        bot.send_photo(chat_id=telegram_chat_id, photo=file)
+    publishes_an_image(directory, image, bot, telegram_chat_id)
 
 
 if __name__ == "__main__":
