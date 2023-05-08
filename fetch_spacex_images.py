@@ -12,7 +12,7 @@ def download_spacex_launch_image(launch_id):
 
 
 if __name__ == "__main__":
-    parser_spacex = argparse.ArgumentParser(description='Введите ID запуска')
+    parser_spacex = argparse.ArgumentParser(description='Введите ID запуска, например 61eefaa89eb1064137a1bd73')
     parser_spacex.add_argument('id_launch', nargs='?', default='61eefaa89eb1064137a1bd73', help='ID запуска')
     launch_id = parser_spacex.parse_args().id_launch
     os.makedirs(image_folder_name, exist_ok=True)
