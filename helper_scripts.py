@@ -30,4 +30,4 @@ def publishes_an_image(directory, image_file_name, tg_bot, tg_chat_id):
         tg_bot.send_photo(chat_id=tg_chat_id, photo=file)
 
 
-image_folder_name = 'images'
+IMAGE_FOLDER_NAME = 'images'

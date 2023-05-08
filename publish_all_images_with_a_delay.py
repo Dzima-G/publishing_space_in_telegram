@@ -4,7 +4,7 @@ import time
 import random
 import argparse
 from dotenv import load_dotenv
-from helper_scripts import image_folder_name, publishes_an_image
+from helper_scripts import IMAGE_FOLDER_NAME, publishes_an_image
 from telegram.error import RetryAfter, TimedOut, NetworkError
 
 
@@ -34,4 +34,4 @@ if __name__ == "__main__":
                                       help='Время задержки между публикациями в секундах')
     publication_delay = parser_post_telegram.parse_args().publication_delay
 
-    take_files(image_folder_name, publication_delay, telegram_token, telegram_chat_id)
+    take_files(IMAGE_FOLDER_NAME, publication_delay, telegram_token, telegram_chat_id)
