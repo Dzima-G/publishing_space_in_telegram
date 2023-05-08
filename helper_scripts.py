@@ -2,6 +2,8 @@ import os
 import requests
 from urllib.parse import urlparse
 
+IMAGE_FOLDER_NAME = 'images'
+
 
 def get_extension(uri):
     extension = urlparse(uri).path
@@ -28,6 +30,3 @@ def publishes_an_image(directory, image_file_name, tg_bot, tg_chat_id):
     file = os.path.join(directory, image_file_name)
     with open(file, 'rb') as file:
         tg_bot.send_photo(chat_id=tg_chat_id, photo=file)
-
-
-IMAGE_FOLDER_NAME = 'images'
