@@ -1,11 +1,10 @@
-import telegram
 import os
 import time
 import random
 import argparse
 from dotenv import load_dotenv
 from helper_scripts import IMAGE_FOLDER_NAME, publishes_an_image
-from telegram.error import RetryAfter, TimedOut, NetworkError
+from telegram.error import RetryAfter, NetworkError
 
 
 def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
@@ -13,10 +12,9 @@ def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
     retry_delay = 10
     while True:
         try:
-            bot = telegram.Bot(token=telegram_token)
             for files_in_dirs in files_in_dir:
                 path = os.path.join(files_in_dirs)
-                publishes_an_image(directory, path, bot, telegram_chat_id)
+                publishes_an_image(directory, path, telegram_token, telegram_chat_id)
                 time.sleep(publication_delay)
             random.shuffle(files_in_dir)
         except (NetworkError, RetryAfter):

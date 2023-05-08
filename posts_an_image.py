@@ -1,4 +1,3 @@
-import telegram
 import os
 import random
 import argparse
@@ -7,8 +6,7 @@ from helper_scripts import IMAGE_FOLDER_NAME, publishes_an_image
 
 
 def publish_image(directory, telegram_token, telegram_chat_id, image):
-    bot = telegram.Bot(token=telegram_token)
-    publishes_an_image(directory, image, bot, telegram_chat_id)
+    publishes_an_image(directory, image, telegram_token, telegram_chat_id)
 
 
 if __name__ == "__main__":
