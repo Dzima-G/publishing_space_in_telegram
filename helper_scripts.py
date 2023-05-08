@@ -11,7 +11,7 @@ def get_extension(uri):
     return os.path.splitext(extension)[1]
 
 
-def get_response_api(api_url, payload_request='None'):
+def get_response_api(api_url, payload_request=None):
     payload = payload_request
     response = requests.get(api_url, params=payload)
     response.raise_for_status()
