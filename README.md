@@ -21,10 +21,10 @@
 Обязательные переменные:
 - `NASA_TOKEN` - токен выглядит например: `N0bFH5PNh4cx6Dc7RBssCDJf7Z6Jgi1KCacg8792`. См. документацию https://api.nasa.gov/
 - `TELEGRAM_TOKEN` - токен выглядит например: `958423683:AAEAtJ5Lde5YYfkjergber`. См. документацию https://core.telegram.org/bots/faq#how-do-i-create-a-bot
-- `TG_CHAT_ID` - выглядит например: `-1001901234567` См. https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
-- 
+- `TELEGRAM_CHAT_ID` - выглядит например: `-1001901234567` См. https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
+
 Необязательные переменные:
-- `PUBLICATION_DELAY_TELEGRAM` - задержка между публикацией постов, указывается в секундах тип данных `int`. Значение по умолчанию 14400.
+- `TELEGRAM_PUBLICATION_DELAY` - задержка между публикацией постов, указывается в секундах тип данных `int`. Значение по умолчанию 14400.
 - `NASA_IMAGES_COUNT` указывается количество скачиваемых фото NASA, тип данных `int`. Значение по умолчанию 30.
 - `NASA_EPIC_IMAGES_COUNT` указывается количество скачиваемых фото NASA EPIC, тип данных `int`. Значение по умолчанию 10.
 

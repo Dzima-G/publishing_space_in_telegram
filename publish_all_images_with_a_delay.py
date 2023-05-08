@@ -25,8 +25,8 @@ def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
 if __name__ == "__main__":
     load_dotenv()
     telegram_token = os.environ['TELEGRAM_TOKEN']
-    telegram_chat_id = os.environ['TG_CHAT_ID']
-    publication_delay_default = os.getenv('PUBLICATION_DELAY_TELEGRAM', default=14400)
+    telegram_chat_id = os.environ['TELEGRAM_CHAT_ID']
+    publication_delay_default = os.getenv('TELEGRAM_PUBLICATION_DELAY', default=14400)
     parser_post_telegram = argparse.ArgumentParser(description='Введите время задержки между публикациями в секундах:')
     parser_post_telegram.add_argument('publication_delay', type=int, nargs='?', default=publication_delay_default,
                                       help='Время задержки между публикациями в секундах')
