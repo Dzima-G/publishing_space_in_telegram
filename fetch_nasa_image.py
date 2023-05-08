@@ -5,10 +5,10 @@ from helper_scripts import IMAGE_FOLDER_NAME, get_extension, get_response_api, s
 from dotenv import load_dotenv
 
 
-def download_image_nasa(nasa_token, images_conut):
+def download_image_nasa(nasa_token, images_count):
     nasa_url = 'https://api.nasa.gov/planetary/apod'
     payload = {'api_key': nasa_token,
-               'count': images_conut,
+               'count': images_count,
                }
     for i, item_uri in enumerate(get_response_api(nasa_url, payload).json()):
         if not item_uri['media_type'] == 'image':
@@ -25,7 +25,7 @@ def download_image_nasa(nasa_token, images_conut):
 if __name__ == "__main__":
     load_dotenv()
     nasa_token = os.environ['NASA_TOKEN']
-    nasa_images_count = os.environ['NASA_IMAGES_COUNT']
+    nasa_images_count = os.getenv('NASA_IMAGES_COUNT', default=30)
     os.makedirs(IMAGE_FOLDER_NAME, exist_ok=True)
 
     try:
