@@ -19,7 +19,7 @@ def take_files(directory, publication_delay, telegram_token, telegram_chat_id):
                 publishes_an_image(directory, path, bot, telegram_chat_id)
                 time.sleep(publication_delay)
             random.shuffle(files_in_dir)
-        except (NetworkError, RetryAfter) as q:
+        except (NetworkError, RetryAfter):
             print('Не удалось установиться соединение с сервером! Повторим попытку через 10 секунд ожидайте.')
             time.sleep(retry_delay)
 
