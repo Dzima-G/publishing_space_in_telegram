@@ -8,13 +8,14 @@ from datetime import datetime
 def download_image_nasa_epic(nasa_token, images_count):
     nasa_epic_url = 'https://epic.gsfc.nasa.gov/api/natural/'
     payload = {'api_key': nasa_token}
-    for i, epic_item in enumerate(get_response_api(nasa_epic_url, payload).json()):
-        if i >= int(images_count):
+    images_count = int(images_count)
+    for i, epic_item in enumerate(get_response_api(nasa_epic_url, payload).json(), 1):
+        if i >= images_count:
             break
         item_epic_data = datetime.fromisoformat(epic_item['date']).strftime("%Y/%m/%d")
         item_epic_name_image = epic_item['image']
         nasa_epic_uri = f'https://api.nasa.gov/EPIC/archive/natural/{item_epic_data}/png/{item_epic_name_image}.png'
-        image_name = f'nasa_epic_{i + 1}.png'
+        image_name = f'nasa_epic_{i}.png'
         save_image(get_response_api(nasa_epic_uri, payload), image_name, IMAGE_FOLDER_NAME)
 
 

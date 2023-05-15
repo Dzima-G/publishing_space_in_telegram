@@ -11,8 +11,7 @@ def get_extension(uri):
     return os.path.splitext(extension)[1]
 
 
-def get_response_api(api_url, payload_request=None):
-    payload = payload_request
+def get_response_api(api_url, payload=None):
     response = requests.get(api_url, params=payload)
     response.raise_for_status()
     return response
@@ -24,7 +23,7 @@ def save_image(file_image, image_name, image_folder_name):
         file.write(file_image.content)
 
 
-def publishes_an_image(directory, image_file_name, telegram_token, tg_chat_id):
+def publish_an_image(directory, image_file_name, telegram_token, tg_chat_id):
     bot = telegram.Bot(token=telegram_token)
     file = os.path.join(directory, image_file_name)
     with open(file, 'rb') as file:

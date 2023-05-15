@@ -6,7 +6,7 @@ from helper_scripts import IMAGE_FOLDER_NAME, get_extension, get_response_api, s
 
 def download_spacex_launch_image(launch_id):
     spacex_uri = f'https://api.spacexdata.com/v5/launches/{launch_id}'
-    for i, item_uri in enumerate(get_response_api(spacex_uri).json()['links']['flickr']['original']):
+    for i, item_uri in enumerate(get_response_api(spacex_uri).json()['links']['flickr']['original'], 1):
         image_name = f'spacex{i}{get_extension(item_uri)}'
         save_image(get_response_api(item_uri), image_name, IMAGE_FOLDER_NAME)
 
